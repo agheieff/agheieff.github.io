@@ -32,8 +32,6 @@
 	src: url("../fonts/EB_Garamond/EBGaramondSC08-Regular.otf");
 }
 :root {
-	--background-color: #fff9e6;
-	--nav-color: #e6d5b8;
 	--nav-border-color: #b89f7a;
 	--lines-limit: 175px;
 	--line-animation-time: 1.5s;
@@ -77,7 +75,7 @@ body, html {
 	align-items: center;
 	font-family: var(--font-family);
 	font-style: normal;
-	background-color: var(--background-color);
+	background-color: #faf6f0;
 }
 
 
@@ -88,22 +86,6 @@ a {
 }
 
 header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: var(--nav-width);
-	height: 100vh
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 var(--header-padding);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	background-color: #f5e6cb;
-	height: var(--logo-height);
-	margin: 0;
-	z-index: 100;
-
-	font-size: 25px;
 }
 
 .logo-name {
@@ -140,17 +122,19 @@ header .logo-date {
 
 
 header nav {
-	background-color: var(--nav-color);
+	background-color: #e6dfd2;
 	position: fixed;
 	left: 0;
 	top: 0;
-	width: var(--nav-width);
+	width: 20vw;
 	height: 100vh;
 	overflow-y: auto;
 	margin-left: auto;
 	margin-right: calc(var(--logo-height) * -1);
 	border: 0px solid var(--nav-border-color);
 	border-right-width: 2px;
+
+	font-size: 25px;
 }
 
 header nav ul li .logo {
@@ -185,6 +169,7 @@ header h1 {
 
 main {
 	font-size: var(--font-size);
+	line-height: 1.25;
 	flex: 1 0 auto;
 	padding: 20px 0;
 	margin-left: var(--nav-width);
@@ -226,13 +211,13 @@ main section h4 {
 }
 
 main p {
-	padding: 5px 20px 5px 20px;
+	padding: 5px 20px 20px 20px;
 }
 
 footer {
 	flex-shrink: 0;
-	width: calc(100vw - var(--nav-width));
-	left: var(--nav-width);
+	width: calc(100vw - 20vw);
+	left: 20vw;
 	background: #333333;
 	color: #ffffff;
 	text-align: center;
