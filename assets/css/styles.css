@@ -32,6 +32,19 @@
 	src: url("../fonts/EB_Garamond/EBGaramondSC08-Regular.otf");
 }
 :root {
+	--primary-color: #4a7eb5;
+	--secondary-color: #c0d6df;
+	--accent-color: #ff6b6b;
+	--text-color: #333333;
+	--background-color: #f4f4f4;
+
+	--heading-font: 'EB Garamond12', serif;
+	--body-font: 'EB Garamond12, serif';
+	--base-font-size: 18px;
+
+	--section-spacing: 4rem;
+	--content-width: 800px;
+
 	--nav-border-color: #b89f7a;
 	--lines-limit: 175px;
 	--line-animation-time: 1.5s;
@@ -52,7 +65,6 @@
 }
 
 * {
-	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -65,28 +77,35 @@ hr {
 }
 
 body, html {
-	margin: 0;
-	padding: 0;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-family: var(--font-family);
+	font-family: var(--body-font);
+	font-size: var(--base-font-size);
+	line-height: 1.6;
+	color: var(--text-color);
 	font-style: normal;
-	background-color: #faf6f0;
+	background-color: var(--background-color);
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--heading-font);
+	margin-bottom: 1rem;
+	color: var(--primary-color);
+}
 
+h1 {font-size: 2.5rem;}
+h2 {font-size: 2rem;}
+h3 {font-size: 1.75rem;}
 
 a {
 	text-decoration: none;
 	color: #000000;
 }
 
-header {
-}
 
 .logo-name {
 	color: var(--logo-name-color);
@@ -122,7 +141,7 @@ header .logo-date {
 
 
 header nav {
-	background-color: #e6dfd2;
+	background-color: var(--primary-color);
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -158,13 +177,8 @@ nav ul li a {
 	padding: -20px -10px -20px -20px;
 	display: block;
 	text-decoration: none;
-	color: #333333;
+	color: var(--text-color);
 	font-weight: bold;
-}
-
-header h1 {
-	display: flex;
-	text-align: center;
 }
 
 main {
@@ -178,15 +192,22 @@ main {
 }
 
 main section {
+	word-wrap: break-word;
+	margin-bottom: var(--section-spacing);
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 2rem;
 	border: 0px solid #111111;
 	border-top-width: 2px;
-	padding: 5px 0 20px 0;
 }
 
 main section .quote {
 	text-align: center;
 	font-size: 30px;
 	font-family: cursive;
+	padding: 5px 0 20px 0;
+	background-color: #aaaaaa;
 	color: #4a4a4a;
 	padding: 30px;
 	margin: 50px auto;
@@ -211,6 +232,7 @@ main section h4 {
 }
 
 main p {
+	width: 100%;
 	padding: 5px 20px 20px 20px;
 }
 
