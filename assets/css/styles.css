@@ -32,7 +32,7 @@
 	src: url("../fonts/EB_Garamond/EBGaramondSC08-Regular.otf");
 }
 :root {
-	--primary-color: #4a7eb5;
+	--primary-color: #bbbbbb;
 	--secondary-color: #c0d6df;
 	--accent-color: #ff6b6b;
 	--text-color: #333333;
@@ -45,7 +45,9 @@
 	--section-spacing: 4rem;
 	--content-width: 800px;
 
-	--nav-border-color: #b89f7a;
+	--nav-width: max(280px, 15vw);
+
+	--nav-border-color: #ddeeff;
 	--lines-limit: 175px;
 	--line-animation-time: 1.5s;
 	--side-menu-animation-time: 0.35s;
@@ -61,7 +63,6 @@
 	--side-menu-width: 350px;
 	--side-menu-v-padding: 20px;
 	--side-menu-h-padding: 20px;
-	--nav-width: 25vw;
 }
 
 * {
@@ -145,7 +146,7 @@ header nav {
 	position: fixed;
 	left: 0;
 	top: 0;
-	width: 20vw;
+	width: var(--nav-width);
 	height: 100vh;
 	overflow-y: auto;
 	margin-left: auto;
@@ -207,11 +208,10 @@ main section .quote {
 	font-size: 30px;
 	font-family: cursive;
 	padding: 5px 0 20px 0;
-	background-color: #aaaaaa;
-	color: #4a4a4a;
+	background-color: #bbbbbb;
+	color: #555555;
 	padding: 30px;
 	margin: 50px auto;
-	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 10px;
 	border-width: 10px 10px 10px 10px;
 	box-shadow: 0 4px 6 px rgba(0, 0, 0, 0.1);
@@ -238,8 +238,8 @@ main p {
 
 footer {
 	flex-shrink: 0;
-	width: calc(100vw - 20vw);
-	left: 20vw;
+	width: calc(100vw - var(--nav-width));
+	left: var(--nav-width);
 	background: #333333;
 	color: #ffffff;
 	text-align: center;
@@ -253,6 +253,18 @@ footer p {
 	margin: 0;
 }
 
+footer a:link {
+	color: var(--primary-color);
+}
+
+footer a:visited {
+	color: #cb9eff;
+}
+
+footer a:active {
+	color: #ffffff;
+}
+
 .full-page {
 	display: flex;
 	justify-content: center;
@@ -262,7 +274,7 @@ footer p {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: var(--header-color);
+	background-color: #eeddcc;
 	z-index: 1000;
 }
 
@@ -281,7 +293,6 @@ footer p {
 
 .circle {
 	font-family: "EB Garamond08";
-
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -293,9 +304,7 @@ footer p {
 	justify-content: center;
 	align-items: center;
 	transition: transform 0.5s;
-
 	cursor: pointer;
-	
 	font-size: 28px;
 }
 
@@ -382,10 +391,10 @@ footer p {
 }
 
 header label {
-	visibility: hidden;
 }
 
 .burger-menu-svg {
+	visibility: hidden;
 	top: 0;
 	right: 0;
 	width: var(--logo-height);
@@ -404,8 +413,7 @@ header label {
 
 @keyframes open-sidebar {
 	0% {visibility: hidden}
-	1% {visibility: visible; height: 0dvh; padding: 0 var(--side-menu-h-padding);}
-	100% {height: 57.5px; padding: var(--side-menu-v-padding) var(--side-menu-h-padding);}
+	100% {visibility: visible}
 }
 
 @keyframes open-sidebar-text {
@@ -447,14 +455,35 @@ header label {
 
 @media (max-width: 918px) { /*TODO change the value, this is for testing */
 	header {
-		padding-right: 0;
+		top: 0;
+		left: 0;
+		width: 100dvw;
+		height: 15dvh;
+		margin-bottom: 25px;
+		background-color: #aaaaaa;
 	}
 
-	header label {
+	header nav {
+		visibility: hidden;
+	}
+
+	main {
+		margin-left: 0;
+		padding: 0 12vw 0 12vw;
+		width: 100vw;
+	}
+
+	footer {
+		left: 0;
+		bottom: 0;
+		width: 100vw;
+	}
+
+	.burger-menu-svg {
 		visibility: visible;
 	}
 
-	#burger-menu-checkbox:checked + nav > ul > li {
+	#burger-menu-checkbox:checked + nav {
 		animation: open-sidebar var(--side-menu-animation-time) forwards;
 	}
 
@@ -480,46 +509,6 @@ header label {
 
 	#burger-menu-checkbox:not(:checked) ~ label > svg > .burger-menu-middle-line {
 		animation: burger-return-middle var(--side-menu-animation-time) forwards;
-	}
-
-	header nav {
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		width: fit-content(100%);
-		height: calc(100dvh - var(--logo-height));
-		margin-right: auto;
-	}
-
-	header nav ul {
-		visibility: hidden;
-		display: inline;
-	}
-	header nav ul li {
-		display: block;
-		background-color: var(--header-color);
-
-		border-bottom-width: 1px;
-		border-bottom-color: #555555;
-		border-bottom-style: solid;
-
-		box-shadow: 0 1px #808080;
-
-		border-left-width: 2px;
-		border-left-color: #808080;
-		border-left-style: solid;
-	}
-
-	#burger-menu-checkbox:checked + nav > ul {
-		visibility: visible;
-	}
-
-	#burger-menu-checkbox:checked + nav > ul > li {
-		anumation: open-sidebar var(--side-menu-animation-time) forwards;
-	}
-
-	#burger-menu-checkbox:checked + nav > ul li > a {
-		animation: open-sidebar-text var(--side-menu-animation-time) forwards;
 	}
 
 	header label {
