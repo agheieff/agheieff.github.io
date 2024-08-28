@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "EB Garamond12";
-	src: url("../fonts/EB_Garamond/EBGaramond12-Regular.otf");
+	src: url("/assets/fonts/EB_Garamond/EBGaramond12-Regular.otf");
 }
 
 @font-face {
@@ -32,9 +32,10 @@
 	src: url("../fonts/EB_Garamond/EBGaramondSC08-Regular.otf");
 }
 :root {
-	--primary-color: #bbbbbb;
+	--primary-color: #801010;
 	--secondary-color: #c0d6df;
 	--accent-color: #ff6b6b;
+	--header-text-color: #ffffff;
 	--text-color: #333333;
 	--background-color: #f4f4f4;
 
@@ -42,22 +43,24 @@
 	--body-font: 'EB Garamond12, serif';
 	--base-font-size: 18px;
 
-	--section-spacing: 4rem;
 	--content-width: 800px;
 
-	--nav-width: max(280px, 15vw);
+	--nav-width: max(300px, 15vw);
 
-	--nav-border-color: #ddeeff;
+	--header-height: max(60px, 10vh);
+
+	--nav-border-color: #ffffff;
 	--lines-limit: 175px;
 	--line-animation-time: 1.5s;
 	--side-menu-animation-time: 0.35s;
-	--header-padding: 20px;
 	--logo-height: max(63px, 10dvh);
 	--mobile-van-width: 700px;
-	--logo-name-color: #680a0a;
-	--logo-date-color: #000060;
+	--logo-name-color: #ffffff;
+	--logo-date-color: #000020;
+	--circle-logo-name-color: #680a0a;
+	--circle-logo-date-color: #000060;
 	--font-family: "EB Garamond12", "Playfair Display";
-	--font-size: 20px;
+	--font-size: 24px;
 	--no-line-media-width: 500px;
 	--side-menu-media-width: 918px;
 	--side-menu-width: 350px;
@@ -71,10 +74,10 @@
 }
 
 hr {
-	border-top: 1px solid #555555;
-	border-bottom: 1px solid #808080;
-	border-left: 1px solid #555555;
-	border-right: 1px solid #555555;
+	border-top: 1px solid var(--nav-border-color);
+	border-bottom: 1px solid var(--nav-border-color);
+	border-left: 1px solid  var(--nav-border-color);
+	border-right: 1px solid var(--nav-border-color);
 }
 
 body, html {
@@ -84,7 +87,7 @@ body, html {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-family: var(--body-font);
+	font-family: var(--font-family);
 	font-size: var(--base-font-size);
 	line-height: 1.6;
 	color: var(--text-color);
@@ -98,35 +101,25 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--primary-color);
 }
 
-h1 {font-size: 2.5rem;}
-h2 {font-size: 2rem;}
-h3 {font-size: 1.75rem;}
+h1 {font-size: 48px;}
+h2 {font-size: 36px;}
+h3 {font-size: 30px;}
 
 a {
 	text-decoration: none;
 	color: #000000;
 }
 
-
-.logo-name {
-	color: var(--logo-name-color);
+header {
 }
-
-.logo-and {
-	font-family: "EB Garamond12it";
-}
-
-.logo-date {
-	
-	color: var(--logo-date-color);
-}
-
 header .logo-name {
+	color: var(--logo-name-color);
 	font-size: 28px;
 	padding: 0 5px;
 }
 
 header .logo-and {
+	font-family: "EB Garamond12it";
 	font-size: 24px;
 }
 
@@ -136,12 +129,26 @@ header .logo-line {
 }
 
 header .logo-date {
+	color: var(--logo-date-color);
 	font-size: 22px;
 	padding: 10px 10px;
 }
 
+header nav ul li .logo {
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+header nav ul li .logo-line {
+	width: 250px;
+}
+
 
 header nav {
+	list-style-type: none;
 	background-color: var(--primary-color);
 	position: fixed;
 	left: 0;
@@ -178,7 +185,7 @@ nav ul li a {
 	padding: -20px -10px -20px -20px;
 	display: block;
 	text-decoration: none;
-	color: var(--text-color);
+	color: var(--header-text-color);
 	font-weight: bold;
 }
 
@@ -194,13 +201,24 @@ main {
 
 main section {
 	word-wrap: break-word;
-	margin-bottom: var(--section-spacing);
+	margin-bottom: 80px;
 	background-color: #ffffff;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	padding: 2rem;
 	border: 0px solid #111111;
 	border-top-width: 2px;
+}
+
+main section .photos {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	flex-wrap: nowrap;
+}
+
+.last-section {
+	margin-bottom: 150px;
 }
 
 main section .quote {
@@ -222,12 +240,12 @@ main section .quote {
 main section h2 {
 	padding: 10px 10px 5px 10px;
 	text-align: center;
-	font-family: cursive;
+	font-family: "EB Garamond12";
 	font-size: 30px;
 }
 
 main section h4 {
-	font-size: 20px;
+	font-size: 30px;
 	padding: 10px 30px 10px 30px;
 }
 
@@ -237,7 +255,6 @@ main p {
 }
 
 footer {
-	flex-shrink: 0;
 	width: calc(100vw - var(--nav-width));
 	left: var(--nav-width);
 	background: #333333;
@@ -245,8 +262,8 @@ footer {
 	text-align: center;
 	padding: 10px 0;
 	margin-top: 20px;
-	position: fixed;
 	bottom: 0;
+	position: fixed;
 }
 
 footer p {
@@ -395,8 +412,9 @@ header label {
 
 .burger-menu-svg {
 	visibility: hidden;
+	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 	width: var(--logo-height);
 	height: var(--logo-height);
 }
@@ -409,6 +427,16 @@ header label {
 	fill: none;
 	stroke: #808080;
 	stroke-width: 3;
+}
+
+@keyframes hide {
+	0% {visibility: visible}
+	100% {visibility: hidden}
+}
+
+@keyframes show {
+	0% {visibility: hidden}
+	100% {visibility: visible}
 }
 
 @keyframes open-sidebar {
@@ -455,25 +483,72 @@ header label {
 
 @media (max-width: 918px) { /*TODO change the value, this is for testing */
 	header {
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100dvw;
-		height: 15dvh;
-		margin-bottom: 25px;
+		height: var(--header-height);
 		background-color: #aaaaaa;
 	}
 
 	header nav {
 		visibility: hidden;
+		margin-top: var(--header-height);
+	}
+
+	.logo, .logo-link {
+		border: none;
+		width: 200px;
+		list-style-type: none;
+		position: fixed;
+		visibility: visible;
+		left: 50vw;
+		margin-left: -100px;
+		top: 0;
+
+		line-height: 1;
+
+		font-size: 14px;
+
+		height: var(--header-height);
+	}
+
+	header nav .logo-name{
+		font-size: 18px;
+		padding-top: 100px;
+	}
+	
+	header nav .logo-and {
+		font-size: 18px;
+	}
+
+	header nav .logo-line {
+		width: 250px;
+	}
+
+	header nav .logo-date {
+		font-size: 18px;
 	}
 
 	main {
+		flex: 1 0 auto;
 		margin-left: 0;
 		padding: 0 12vw 0 12vw;
 		width: 100vw;
+		height: 100%;
+		overflow: auto;
+	}
+
+	main .first-section {
+		margin-top: 50px;
+	}
+
+	main section .about-photo {
+		width: calc((76vw - 3rem) / 3.5);
 	}
 
 	footer {
+		position: sticky;
 		left: 0;
 		bottom: 0;
 		width: 100vw;
