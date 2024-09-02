@@ -1,43 +1,26 @@
 @font-face {
 	font-family: "EB Garamond12";
-	src: url("/assets/fonts/EB_Garamond/EBGaramond12-Regular.otf");
+	src: url("../fonts/EBGaramond12-Regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "EB Garamond12it";
-	src: url("../fonts/EB_Garamond/EBGaramond12-Italic.otf");
+	src: url("../fonts/EBGaramond12-Italic.woff2") format("woff2");
 	font-style: italic;
 	font-feature-settings: "cv04" off;
 }
 
 @font-face {
-	font-family: "EB Garamond12SC";
-	src: url("../fonts/EB_Garamond/EBGaramondSC12-Regular.otf");
-}
-
-@font-face {
 	font-family: "EB Garamond08";
-	src: url("../fonts/EB_Garamond/EBGaramond08-Regular.otf");
+	src: url("../fonts/EBGaramond08-Regular.woff2") format("woff2");
 }
 
-@font-face {
-	font-family: "EB Garamond08it";
-	src: url("../fonts/EB_Garamond/EBGaramond08-Italic.otf");
-	font-ctyle: italic;
-	font-feature-settings: "cv04" off;
-}
-
-@font-face {
-	font-family: "EB Garamond08SC";
-	src: url("../fonts/EB_Garamond/EBGaramondSC08-Regular.otf");
-}
 :root {
-	--primary-color: #801010;
-	--secondary-color: #c0d6df;
-	--accent-color: #ff6b6b;
-	--header-text-color: #ffffff;
+	--nav-color: #801010;
+	--nav-text-color: #ffffff;
 	--text-color: #333333;
 	--background-color: #f4f4f4;
+
 
 	--heading-font: 'EB Garamond12', serif;
 	--body-font: 'EB Garamond12, serif';
@@ -48,17 +31,22 @@
 	--nav-width: max(300px, 15vw);
 
 	--header-height: max(60px, 10vh);
+	--main-height: calc(100vh-var(--header-height));
 
 	--nav-border-color: #ffffff;
 	--lines-limit: 175px;
 	--line-animation-time: 1.5s;
 	--side-menu-animation-time: 0.35s;
 	--logo-height: max(63px, 10dvh);
-	--mobile-van-width: 700px;
-	--logo-name-color: #ffffff;
+	--mobile-van-width: 70;;
+	--logo-name-color: #fff;
 	--logo-date-color: #000020;
-	--circle-logo-name-color: #680a0a;
-	--circle-logo-date-color: #000060;
+	--circle-logo-name-color: #fff;
+	--circle-logo-and-color: var(--logo-date-color);
+	--circle-logo-date-color: #fff;
+	--circle-line-color: #fff;
+	--circle-line-color-top: #fff;
+	--link-color: #9999ff;
 	--font-family: "EB Garamond12", "Playfair Display";
 	--font-size: 24px;
 	--no-line-media-width: 500px;
@@ -98,7 +86,7 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--heading-font);
 	margin-bottom: 1rem;
-	color: var(--primary-color);
+	color: var(--nav-color);
 }
 
 h1 {font-size: 48px;}
@@ -121,6 +109,12 @@ header .logo-name {
 header .logo-and {
 	font-family: "EB Garamond12it";
 	font-size: 24px;
+}
+
+header .circle-and {
+	font-family: "EB Garamond12it";
+	font-size: 24px;
+	color: var(--circle-logo-and-color);
 }
 
 header .logo-line {
@@ -149,7 +143,7 @@ header nav ul li .logo-line {
 
 header nav {
 	list-style-type: none;
-	background-color: var(--primary-color);
+	background-color: var(--nav-color);
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -164,28 +158,31 @@ header nav {
 	font-size: 25px;
 }
 
+header nav ul {
+	margin: 0;
+}
+
 header nav ul li .logo {
 	box-sizing: border-box;
 	background-color: var(--header-color);
 }
 
 header nav ul li {
-	padding: 20px 10px 20px 20px;
 	border: 0px solid var(--nav-border-color);
 	border-bottom-width: 2px;
 
 }
 
 header nav ul li:hover {
-	background-color: #ffffff;
+	background-color: #902020;
 	cursor: pointer;
 }
 
 nav ul li a {
-	padding: -20px -10px -20px -20px;
+	padding: 20px 10px 20px 20px;
 	display: block;
 	text-decoration: none;
-	color: var(--header-text-color);
+	color: var(--nav-text-color);
 	font-weight: bold;
 }
 
@@ -224,10 +221,8 @@ main section .photos {
 main section .quote {
 	text-align: center;
 	font-size: 30px;
-	font-family: cursive;
 	padding: 5px 0 20px 0;
-	background-color: #bbbbbb;
-	color: #555555;
+	color: var(--text-color);
 	padding: 30px;
 	margin: 50px auto;
 	border-radius: 10px;
@@ -235,6 +230,7 @@ main section .quote {
 	box-shadow: 0 4px 6 px rgba(0, 0, 0, 0.1);
 	line-height: 1.4;
 	margin-bottom: 20px;
+	font-style: italic;
 }
 
 main section h2 {
@@ -271,7 +267,7 @@ footer p {
 }
 
 footer a:link {
-	color: var(--primary-color);
+	color: var(--link-color)
 }
 
 footer a:visited {
@@ -291,7 +287,7 @@ footer a:active {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: #eeddcc;
+	background-color: var(--nav-color);
 	z-index: 1000;
 }
 
@@ -331,8 +327,14 @@ footer a:active {
 	animation: continuous-rotate 25s var(--d,0s) linear infinite;
 }
 
+.circle-name {
+	color: var(--circle-logo-name-color);
+	font-size: 28px;
+	padding: 0 5px;
+}
+
 .circle-date {
-	color: var(--logo-date-color);
+	color: var(--circle-logo-date-color);
 	top: 50%;
 	left: 50%;
 	font-variant-caps: small-caps;
@@ -340,6 +342,11 @@ footer a:active {
 
 .center-line {
 	position: fixed;
+	border-top: 1px solid var(--circle-line-color-top);
+	border-bottom: 1px solid var(--circle-line-color);
+	border-left: 1px solid var(--circle-line-color);
+	border-right: 1px solid var(--circle-line-color);
+
 	top: 50%;
 	margin-top: -1px;
 	width: calc(50vw - var(--lines-limit));
@@ -407,7 +414,8 @@ footer a:active {
 	display: none;
 }
 
-header label {
+header label svg rect {
+	
 }
 
 .burger-menu-svg {
@@ -425,7 +433,7 @@ header label {
 
 .burger-menu-border {
 	fill: none;
-	stroke: #808080;
+	stroke: #ffffff;
 	stroke-width: 3;
 }
 
@@ -488,7 +496,8 @@ header label {
 		left: 0;
 		width: 100dvw;
 		height: var(--header-height);
-		background-color: #aaaaaa;
+		background-color: var(--nav-color);
+		z-index: 100;
 	}
 
 	header nav {
@@ -522,21 +531,26 @@ header label {
 		font-size: 18px;
 	}
 
-	header nav .logo-line {
-		width: 250px;
+	header nav ul li .logo-line {
+		width: 170px;
 	}
 
 	header nav .logo-date {
 		font-size: 18px;
 	}
+	
+	.burger-menu-top-line, .burger-menu-middle-line, .burger-menu-bottom-line {
+		fill: #3a0000;
+	}
 
 	main {
-		flex: 1 0 auto;
+		position: absolute;
+		top: var(--header-height);
 		margin-left: 0;
 		padding: 0 12vw 0 12vw;
 		width: 100vw;
-		height: 100%;
 		overflow: auto;
+		z-index: 10;
 	}
 
 	main .first-section {
@@ -548,10 +562,11 @@ header label {
 	}
 
 	footer {
-		position: sticky;
+		position: fixed;
 		left: 0;
 		bottom: 0;
 		width: 100vw;
+		z-index: 11;
 	}
 
 	.burger-menu-svg {
@@ -591,3 +606,13 @@ header label {
 	}
 }
 
+@media (max-width:700px) {
+	main .photos {
+		flex-direction: column;
+
+	}
+
+	main section .about-photo {
+		width: 100%;
+	}
+}

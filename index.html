@@ -14,53 +14,60 @@
 				<hr class="left-line center-line">
 				<hr class="right-line center-line">
 				<label for="circle-checkbox" class="circle">
-					<span class="rotate logo-name" style="--d:-17.201s">A</span>
-					<span class="rotate logo-name" style="--d:-17.698s">r</span>
-					<span class="rotate logo-name" style="--d:-18.135s">k</span>
-					<span class="rotate logo-name" style="--d:-18.599s">a</span>
-					<span class="rotate logo-name" style="--d:-19.046s">d</span>
-					<span class="rotate logo-name" style="--d:-19.426s">i</span>
-					<span class="rotate logo-name" style="--d:-19.770s">y</span>
+					<span class="rotate circle-name" style="--d:-17.201s">A</span>
+					<span class="rotate circle-name" style="--d:-17.698s">r</span>
+					<span class="rotate circle-name" style="--d:-18.135s">k</span>
+					<span class="rotate circle-name" style="--d:-18.599s">a</span>
+					<span class="rotate circle-name" style="--d:-19.046s">d</span>
+					<span class="rotate circle-name" style="--d:-19.426s">i</span>
+					<span class="rotate circle-name" style="--d:-19.770s">y</span>
 
-					<span class="rotate logo-and" style="--d:-0s">&amp;</span>
+					<span class="rotate circle-and" style="--d:-0s">&amp;</span>
 
-					<span class="rotate logo-name" style="--d:-4.928s">N</span>
-					<span class="rotate logo-name" style="--d:-5.470s">a</span>
-					<span class="rotate logo-name" style="--d:-5.914s">o</span>
-					<span class="rotate logo-name" style="--d:-6.557s">m</span>
-					<span class="rotate logo-name" style="--d:-7.096s">i</span>
+					<span class="rotate circle-name" style="--d:-4.928s">N</span>
+					<span class="rotate circle-name" style="--d:-5.470s">a</span>
+					<span class="rotate circle-name" style="--d:-5.914s">o</span>
+					<span class="rotate circle-name" style="--d:-6.557s">m</span>
+					<span class="rotate circle-name" style="--d:-7.096s">i</span>
 
-					<span class="rotate logo-and" style="--d:-12.5s">&amp;</span>
+					<span class="rotate circle-and" style="--d:-12.5s">&amp;</span>
 
 					<div class="circle-date">12.10.2024</div>
 				</label>
 			</div>
 
 
-			<input type="checkbox" id="burger-menu-checkbox">
+			<input type="checkbox" id="burger-menu-checkbox" autocomplete="off">
 
 			<nav>
-				<ul>
-					<li class="logo">
-						<a class="logo" href="#">
-							<div class="logo-first-line">
-								<span class="-logo-name">Arkadiy</span>
-								<span class="logo-and">&amp;</span>
-								<span class="logo-name">Naomi</span>
-							</div>
-							<hr class="logo-line">
-							<div class="logo-second-line">
-								<span class="logo-date">Svatba</span>
-							</div>
-						</a>
-					</li>
-					<li><a href="#about">O nás</a></li>
-					<li><a href="#route">Jak se dostat na místo</a></li>
-					<li><a href="#gifts">Chcete nás obdarovat?</a></li>
-					<li><a href="#dress-code">Dress Code</a></li>
-					<li><a href="#ceremony">Co a jak v kostele</a></li>
-				</ul>
+					<ul id="list">
+						<li class="logo">
+							<a class="logo" href="#">
+								<div class="logo-first-line">
+									<span class="logo-name">Arkadiy</span>
+									<span class="logo-and">&amp;</span>
+									<span class="logo-name">Naomi</span>
+								</div>
+								<hr class="logo-line">
+								<div class="logo-second-line">
+									<span class="logo-date">Svatba</span>
+								</div>
+							</a>
+						</li>
+						<li><a href="#about">O nás</a></li>
+						<li><a href="#route">Jak se dostat na místo</a></li>
+						<li><a href="#gifts">Chcete nás obdarovat?</a></li>
+						<li><a href="#dress-code">Dress Code</a></li>
+						<li><a href="#ceremony">Co a jak v kostele</a></li>
+						<li><a href="#booklet">Brožurka</a></li>
+					</ul>
 			</nav>
+
+			<script>
+				document.getElementById('list').addEventListener('click', function(e) {
+					document.getElementById('burger-menu-checkbox').checked = false;
+				});
+			</script>
 
 			<label for="burger-menu-checkbox">
 				<svg viewBox="0 0 100 100" height="100" width="100" class="burger-menu-svg">
@@ -80,7 +87,7 @@
 					<img src="/svatba/assets/photos/foto2.jpg" alt="Naše foto 2" width="200" class="about-photo">
 					<img src="/svatba/assets/photos/foto3.jpg" alt="Naše foto 3" width="200" class="about-photo">
 				</div>
-				<p class="quote">“Co Bůh spojil, člověk nerozlučuj” (Marek 10,9)</p>
+				<p class="quote">“Co Bůh spojil, člověk nerozlučuj.” (Marek 10, 9)</p>
 				<p>Jsme Arkadiy a Naomi a chceme spoly být na věky věků. Pojďte s námi oslavit den, kdy chceme před všemohoucím Bohem naši lásku stvrdít ve svátostném slibu.</p>
 			</section>
 
