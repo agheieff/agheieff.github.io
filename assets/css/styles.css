@@ -257,6 +257,22 @@ main p {
 	padding: 5px 20px 20px 20px;
 }
 
+main iframe {
+	display: block;
+	margin: auto;
+}
+
+main .account-number {
+	text-align: center;
+	font-size: 26px;
+}
+
+main .copy-text {
+	text-decoration: underline;
+	text-decoration-color: grey;
+	cursor: pointer;
+}
+
 footer {
 	width: calc(100vw - var(--nav-width));
 	left: var(--nav-width);
